@@ -10,11 +10,10 @@ class ChangeVal{
   static ValueNotifier<bool?> filterByCredit = ValueNotifier(true);
   static ValueNotifier<bool?> filterByDebit = ValueNotifier(true);
   static ValueNotifier<bool?> filterByVal = ValueNotifier(false);
+  static ValueNotifier<RangeValues> currentRangeValue = ValueNotifier(const RangeValues(0,100000));
 
   //To Listen for this change and then rebuild the list
   static ValueNotifier<bool?> toggleApply = ValueNotifier(false);
 
 
 }
-
-// RangeValues currentRangeValues = const RangeValues(0, 100000);

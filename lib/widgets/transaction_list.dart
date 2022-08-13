@@ -27,7 +27,7 @@ class _TransListState extends State<TransList> {
   int lengthList() {
     int n = 0;
     for (int i = 0; i < widget.trans!.length; i++) {
-      if(widget.trans![i].accountId == widget.accountId){
+      if (widget.trans![i].accountId == widget.accountId) {
         if (filterByCredit && filterByDebit
             ? widget.trans![i].type == 'CREDIT' ||
                 widget.trans![i].type == 'DEBIT'
@@ -36,7 +36,12 @@ class _TransListState extends State<TransList> {
                 : filterByDebit
                     ? widget.trans![i].type == 'DEBIT'
                     : false) {
-          n++;
+          if (filterByVal
+              ? widget.trans![i].amount! >= currentRangeValues.start &&
+                  widget.trans![i].amount! <= currentRangeValues.end
+              : true) {
+            n++;
+          }
         }
       }
     }
@@ -204,7 +209,10 @@ class _TransListState extends State<TransList> {
                             ),
                             value: filterByVal,
                             onChanged: (bool? val) {
-                              setModalState(() => filterByVal = val!);
+                              setModalState(() {
+                                filterByVal = val!;
+                                ChangeVal.filterByVal.value = filterByVal;
+                              });
                             },
                             controlAffinity: ListTileControlAffinity.leading,
                           ),
@@ -222,6 +230,8 @@ class _TransListState extends State<TransList> {
                             onChanged: (RangeValues values) {
                               setModalState(() {
                                 currentRangeValues = values;
+                                ChangeVal.currentRangeValue.value =
+                                    currentRangeValues;
                               });
                             },
                           ),
@@ -351,49 +361,57 @@ class _TransListState extends State<TransList> {
                                   : filterByDebit
                                       ? widget.trans![index].type == 'DEBIT'
                                       : false) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 8.0, horizontal: 20.0),
-                                  child: Text(
-                                    transDate.format(DateTime.parse(widget
-                                        .trans![index].timestamp
-                                        .toString())),
-                                    textAlign: TextAlign.left,
+                            if (filterByVal
+                                ? widget.trans![index].amount! >=
+                                        currentRangeValues.start &&
+                                    widget.trans![index].amount! <=
+                                        currentRangeValues.end
+                                : true) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 8.0, horizontal: 20.0),
+                                    child: Text(
+                                      transDate.format(DateTime.parse(widget
+                                          .trans![index].timestamp
+                                          .toString())),
+                                      textAlign: TextAlign.left,
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 0.0, horizontal: 10.0),
-                                  child: ListTile(
-                                      shape: BorderDirectional(
-                                        bottom: BorderSide(
-                                            color:
-                                                Colors.black.withOpacity(0.2),
-                                            width: 0.8),
-                                      ),
-                                      title: Text(
-                                        widget.trans![index].description
-                                            .toString(),
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18.0),
-                                      ),
-                                      trailing: Text(
-                                        "${currency.format(widget.trans![index].amount)} ${widget.trans![index].type == 'DEBIT' ? debit : credit}",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18.0,
-                                            color: widget.trans![index].type ==
-                                                    'DEBIT'
-                                                ? Colors.red
-                                                : Colors.green),
-                                      )),
-                                ),
-                              ],
-                            );
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 0.0, horizontal: 10.0),
+                                    child: ListTile(
+                                        shape: BorderDirectional(
+                                          bottom: BorderSide(
+                                              color:
+                                                  Colors.black.withOpacity(0.2),
+                                              width: 0.8),
+                                        ),
+                                        title: Text(
+                                          widget.trans![index].description
+                                              .toString(),
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18.0),
+                                        ),
+                                        trailing: Text(
+                                          "${currency.format(widget.trans![index].amount)} ${widget.trans![index].type == 'DEBIT' ? debit : credit}",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18.0,
+                                              color:
+                                                  widget.trans![index].type ==
+                                                          'DEBIT'
+                                                      ? Colors.red
+                                                      : Colors.green),
+                                        )),
+                                  ),
+                                ],
+                              );
+                            }
                           }
                         }
                         return Container();

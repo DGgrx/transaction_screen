@@ -47,7 +47,8 @@ class _BankTitleState extends State<BankTitle> {
           builder: (context, StateSetter setModalState) {
             return Container(
                 height: MediaQuery.of(context).size.height * 0.5,
-                padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -67,9 +68,9 @@ class _BankTitleState extends State<BankTitle> {
                             child: const Text(
                               "Account Jodein",
                               style: TextStyle(
-                                  fontSize: 17.0, fontWeight: FontWeight.bold,
-                                decoration: TextDecoration.underline
-                              ),
+                                  fontSize: 17.0,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline),
                             ))
                       ],
                     ),
@@ -80,43 +81,38 @@ class _BankTitleState extends State<BankTitle> {
                           title: Text(widget.bank![0].fipName.toString()),
                           subtitle: Text(
                               "${widget.bank![0].accountType} A/C ${widget.bank![0].accountNumber}"),
-
-                            value: 'lrn_001',
-                            groupValue: currentVal,
-                            onChanged: (val) {
-                              setModalState(() => currentVal = val.toString());
-                            },
-                          controlAffinity:
-                          ListTileControlAffinity.trailing,
+                          value: 'lrn_001',
+                          groupValue: currentVal,
+                          onChanged: (val) {
+                            setModalState(() => currentVal = val.toString());
+                          },
+                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
                         RadioListTile(
                           title: Text(widget.bank![1].fipName.toString()),
                           subtitle: Text(
                               "${widget.bank![1].accountType} A/C ${widget.bank![1].accountNumber}"),
-
-                            value: 'lrn_002',
-                            groupValue: currentVal,
-                            onChanged: (val) {
-                              setModalState(() => currentVal = val.toString());
-                            },
-                          controlAffinity:
-                          ListTileControlAffinity.trailing,
-
+                          value: 'lrn_002',
+                          groupValue: currentVal,
+                          onChanged: (val) {
+                            setModalState(() => currentVal = val.toString());
+                          },
+                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
                         RadioListTile(
                           title: Text(widget.bank![2].fipName.toString()),
                           subtitle: Text(
                               "${widget.bank![2].accountType} A/C ${widget.bank![2].accountNumber}"),
-
-                            value: 'lrn_003',
-                            groupValue: currentVal,
-                            onChanged: (val) {
-                              setModalState(() => currentVal = val.toString());
-                            },
-                          controlAffinity:
-                          ListTileControlAffinity.trailing,
+                          value: 'lrn_003',
+                          groupValue: currentVal,
+                          onChanged: (val) {
+                            setModalState(() => currentVal = val.toString());
+                          },
+                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
-                        const SizedBox(height: 25.0,),
+                        const SizedBox(
+                          height: 25.0,
+                        ),
                         ElevatedButton(
                             onPressed: () {
                               ChangeVal.accountId.value = currentVal!;
@@ -124,11 +120,12 @@ class _BankTitleState extends State<BankTitle> {
                               Navigator.pop(context);
                             },
                             child: const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 15.0,horizontal: 0.0),
-                              child: Text("Apply",
-                              style: TextStyle(
-                                fontSize: 18.0
-                              ),),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 15.0, horizontal: 0.0),
+                              child: Text(
+                                "Apply",
+                                style: TextStyle(fontSize: 18.0),
+                              ),
                             ))
                       ],
                     )
