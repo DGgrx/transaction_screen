@@ -1,16 +1,10 @@
-# transaction_screen
+# Transaction Screen
 
-A new Flutter project.
+Transaction Screen for multiple bank accounts using a local JSON in flutter.
 
-## Getting Started
+## Features
+- Listing of the transactions of the particular selected Bank Account.
+- Sorting of the listed transactions
+- Filtering of the listed transactions by 'Debit', 'Credit' and by 'Amount Value'. 
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
