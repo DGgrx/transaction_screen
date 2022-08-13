@@ -1,0 +1,435 @@
+{
+  "transactions": [
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 13495,
+      "type": "CREDIT",
+      "accountId": "lrn_001",
+      "description": "dividend",
+      "timestamp": "2022-08-10 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 37946,
+      "type": "CREDIT",
+      "accountId": "lrn_001",
+      "description": "received from friend",
+      "timestamp": "2022-08-05 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 17141,
+      "type": "DEBIT",
+      "accountId": "lrn_001",
+      "description": "flipkart payment",
+      "timestamp": "2022-08-02 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 8412,
+      "type": "DEBIT",
+      "accountId": "lrn_001",
+      "description": "amazon payment",
+      "timestamp": "2022-08-01 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 33949,
+      "type": "DEBIT",
+      "accountId": "lrn_001",
+      "description": "flipkart payment",
+      "timestamp": "2022-07-27 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 43763,
+      "type": "CREDIT",
+      "accountId": "lrn_001",
+      "description": "dividend",
+      "timestamp": "2022-07-22 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 3848,
+      "type": "DEBIT",
+      "accountId": "lrn_001",
+      "description": "flipkart payment",
+      "timestamp": "2022-07-17 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 10901,
+      "type": "DEBIT",
+      "accountId": "lrn_001",
+      "description": "zomato payment",
+      "timestamp": "2022-07-14 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 12151,
+      "type": "CREDIT",
+      "accountId": "lrn_001",
+      "description": "dividend",
+      "timestamp": "2022-07-12 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 43363,
+      "type": "CREDIT",
+      "accountId": "lrn_001",
+      "description": "payment credit",
+      "timestamp": "2022-07-11 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 46215,
+      "type": "DEBIT",
+      "accountId": "lrn_001",
+      "description": "amazon payment",
+      "timestamp": "2022-07-09 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 23798,
+      "type": "DEBIT",
+      "accountId": "lrn_001",
+      "description": "payment to friend",
+      "timestamp": "2022-07-07 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 15926,
+      "type": "CREDIT",
+      "accountId": "lrn_001",
+      "description": "dividend",
+      "timestamp": "2022-07-06 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 16858,
+      "type": "CREDIT",
+      "accountId": "lrn_001",
+      "description": "dividend",
+      "timestamp": "2022-07-01 14:39:30.185051"
+    },
+    {
+      "fipId": "AXIS",
+      "accountNumber": "XXXX123",
+      "amount": 1183,
+      "type": "CREDIT",
+      "accountId": "lrn_001",
+      "description": "received from friend",
+      "timestamp": "2022-06-30 14:39:30.185051"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 7369,
+      "type": "DEBIT",
+      "accountId": "lrn_002",
+      "description": "zomato payment",
+      "timestamp": "2022-08-10 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 24606,
+      "type": "DEBIT",
+      "accountId": "lrn_002",
+      "description": "amazon payment",
+      "timestamp": "2022-08-07 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 20046,
+      "type": "CREDIT",
+      "accountId": "lrn_002",
+      "description": "dividend",
+      "timestamp": "2022-08-03 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 11042,
+      "type": "CREDIT",
+      "accountId": "lrn_002",
+      "description": "dividend",
+      "timestamp": "2022-08-01 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 24484,
+      "type": "CREDIT",
+      "accountId": "lrn_002",
+      "description": "dividend",
+      "timestamp": "2022-07-29 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 36332,
+      "type": "DEBIT",
+      "accountId": "lrn_002",
+      "description": "zomato payment",
+      "timestamp": "2022-07-24 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 47675,
+      "type": "CREDIT",
+      "accountId": "lrn_002",
+      "description": "received from friend",
+      "timestamp": "2022-07-19 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 37003,
+      "type": "CREDIT",
+      "accountId": "lrn_002",
+      "description": "dividend",
+      "timestamp": "2022-07-18 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 34880,
+      "type": "CREDIT",
+      "accountId": "lrn_002",
+      "description": "payment credit",
+      "timestamp": "2022-07-13 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 44287,
+      "type": "DEBIT",
+      "accountId": "lrn_002",
+      "description": "zomato payment",
+      "timestamp": "2022-07-08 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 10061,
+      "type": "DEBIT",
+      "accountId": "lrn_002",
+      "description": "zomato payment",
+      "timestamp": "2022-07-03 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 31571,
+      "type": "DEBIT",
+      "accountId": "lrn_002",
+      "description": "flipkart payment",
+      "timestamp": "2022-07-01 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 31692,
+      "type": "CREDIT",
+      "accountId": "lrn_002",
+      "description": "received from friend",
+      "timestamp": "2022-06-29 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 46680,
+      "type": "CREDIT",
+      "accountId": "lrn_002",
+      "description": "dividend",
+      "timestamp": "2022-06-27 14:39:30.185148"
+    },
+    {
+      "fipId": "KOTAK",
+      "accountNumber": "XXXX124",
+      "amount": 12778,
+      "type": "DEBIT",
+      "accountId": "lrn_002",
+      "description": "payment to friend",
+      "timestamp": "2022-06-24 14:39:30.185148"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 12153,
+      "type": "CREDIT",
+      "accountId": "lrn_003",
+      "description": "received from friend",
+      "timestamp": "2022-08-10 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 26173,
+      "type": "DEBIT",
+      "accountId": "lrn_003",
+      "description": "zomato payment",
+      "timestamp": "2022-08-05 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 18626,
+      "type": "CREDIT",
+      "accountId": "lrn_003",
+      "description": "received from friend",
+      "timestamp": "2022-07-31 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 9834,
+      "type": "DEBIT",
+      "accountId": "lrn_003",
+      "description": "amazon payment",
+      "timestamp": "2022-07-29 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 5507,
+      "type": "DEBIT",
+      "accountId": "lrn_003",
+      "description": "zomato payment",
+      "timestamp": "2022-07-26 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 12159,
+      "type": "DEBIT",
+      "accountId": "lrn_003",
+      "description": "flipkart payment",
+      "timestamp": "2022-07-24 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 29994,
+      "type": "DEBIT",
+      "accountId": "lrn_003",
+      "description": "flipkart payment",
+      "timestamp": "2022-07-21 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 49198,
+      "type": "CREDIT",
+      "accountId": "lrn_003",
+      "description": "dividend",
+      "timestamp": "2022-07-18 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 45196,
+      "type": "DEBIT",
+      "accountId": "lrn_003",
+      "description": "amazon payment",
+      "timestamp": "2022-07-16 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 40264,
+      "type": "CREDIT",
+      "accountId": "lrn_003",
+      "description": "payment credit",
+      "timestamp": "2022-07-11 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 32582,
+      "type": "DEBIT",
+      "accountId": "lrn_003",
+      "description": "amazon payment",
+      "timestamp": "2022-07-07 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 38259,
+      "type": "CREDIT",
+      "accountId": "lrn_003",
+      "description": "payment credit",
+      "timestamp": "2022-07-04 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 8785,
+      "type": "CREDIT",
+      "accountId": "lrn_003",
+      "description": "dividend",
+      "timestamp": "2022-07-03 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 18022,
+      "type": "CREDIT",
+      "accountId": "lrn_003",
+      "description": "dividend",
+      "timestamp": "2022-06-30 14:39:30.185226"
+    },
+    {
+      "fipId": "HDFC",
+      "accountNumber": "XXXX125",
+      "amount": 34877,
+      "type": "CREDIT",
+      "accountId": "lrn_003",
+      "description": "payment credit",
+      "timestamp": "2022-06-28 14:39:30.185226"
+    }
+  ],
+  "banks": [
+    {
+      "fipId": "AXIS",
+      "fipName": "AXIS Bank",
+      "balance": 245678,
+      "accountType": "SAVINGS",
+      "accountNumber": "XXXX123",
+      "accountId": "lrn_001"
+    },
+    {
+      "fipId": "KOTAK",
+      "fipName": "KOTAK Mahindra Bank",
+      "balance": 1000000,
+      "accountType": "SAVINGS",
+      "accountNumber": "XXXX124",
+      "accountId": "lrn_002"
+    },
+    {
+      "fipId": "HDFC",
+      "fipName": "HDFC Bank",
+      "balance": 500000,
+      "accountType": "SAVINGS",
+      "accountNumber": "XXXX125",
+      "accountId": "lrn_003"
+    }
+  ]
+}
