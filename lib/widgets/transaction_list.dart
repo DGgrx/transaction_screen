@@ -27,8 +27,17 @@ class _TransListState extends State<TransList> {
   int lengthList() {
     int n = 0;
     for (int i = 0; i < widget.trans!.length; i++) {
-      if (widget.trans![i].accountId == widget.accountId) {
-        n++;
+      if(widget.trans![i].accountId == widget.accountId){
+        if (filterByCredit && filterByDebit
+            ? widget.trans![i].type == 'CREDIT' ||
+                widget.trans![i].type == 'DEBIT'
+            : filterByCredit
+                ? widget.trans![i].type == 'CREDIT'
+                : filterByDebit
+                    ? widget.trans![i].type == 'DEBIT'
+                    : false) {
+          n++;
+        }
       }
     }
     return n;
@@ -152,7 +161,10 @@ class _TransListState extends State<TransList> {
                             ),
                             value: filterByCredit,
                             onChanged: (bool? val) {
-                              setModalState(() => filterByCredit = val!);
+                              setModalState(() {
+                                filterByCredit = val!;
+                                ChangeVal.filterByCredit.value = filterByCredit;
+                              });
                             },
                             controlAffinity: ListTileControlAffinity.leading,
                           ),
@@ -164,7 +176,10 @@ class _TransListState extends State<TransList> {
                             ),
                             value: filterByDebit,
                             onChanged: (bool? val) {
-                              setModalState(() => filterByDebit = val!);
+                              setModalState(() {
+                                filterByDebit = val!;
+                                ChangeVal.filterByDebit.value = filterByDebit;
+                              });
                             },
                             controlAffinity: ListTileControlAffinity.leading,
                           ),
@@ -248,6 +263,12 @@ class _TransListState extends State<TransList> {
                                     filterByVal = false;
                                     currentRangeValues =
                                         const RangeValues(0, 100000);
+                                    ChangeVal.sortBy.value = sortBy;
+                                    ChangeVal.filterByDebit.value =
+                                        filterByDebit;
+                                    ChangeVal.filterByCredit.value =
+                                        filterByCredit;
+                                    ChangeVal.filterByVal.value = filterByVal;
                                   });
                                   Navigator.pop(context);
                                 },
@@ -302,7 +323,7 @@ class _TransListState extends State<TransList> {
             children: [
               ListTile(
                 title: Text(
-                  "Showing $count results",
+                  "Showing ${lengthList()} of $count results",
                   style: const TextStyle(
                       fontSize: 21.0, fontWeight: FontWeight.bold),
                 ),
@@ -322,48 +343,58 @@ class _TransListState extends State<TransList> {
                       itemBuilder: (context, index) {
                         if (widget.trans![index].accountId ==
                             widget.accountId) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 8.0, horizontal: 20.0),
-                                child: Text(
-                                  transDate.format(DateTime.parse(widget
-                                      .trans![index].timestamp
-                                      .toString())),
-                                  textAlign: TextAlign.left,
+                          if (filterByCredit && filterByDebit
+                              ? widget.trans![index].type == 'CREDIT' ||
+                                  widget.trans![index].type == 'DEBIT'
+                              : filterByCredit
+                                  ? widget.trans![index].type == 'CREDIT'
+                                  : filterByDebit
+                                      ? widget.trans![index].type == 'DEBIT'
+                                      : false) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 8.0, horizontal: 20.0),
+                                  child: Text(
+                                    transDate.format(DateTime.parse(widget
+                                        .trans![index].timestamp
+                                        .toString())),
+                                    textAlign: TextAlign.left,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 0.0, horizontal: 10.0),
-                                child: ListTile(
-                                    shape: BorderDirectional(
-                                      bottom: BorderSide(
-                                          color: Colors.black.withOpacity(0.2),
-                                          width: 0.8),
-                                    ),
-                                    title: Text(
-                                      widget.trans![index].description
-                                          .toString(),
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18.0),
-                                    ),
-                                    trailing: Text(
-                                      "${currency.format(widget.trans![index].amount)} ${widget.trans![index].type == 'DEBIT' ? debit : credit}",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18.0,
-                                          color: widget.trans![index].type ==
-                                                  'DEBIT'
-                                              ? Colors.red
-                                              : Colors.green),
-                                    )),
-                              ),
-                            ],
-                          );
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 0.0, horizontal: 10.0),
+                                  child: ListTile(
+                                      shape: BorderDirectional(
+                                        bottom: BorderSide(
+                                            color:
+                                                Colors.black.withOpacity(0.2),
+                                            width: 0.8),
+                                      ),
+                                      title: Text(
+                                        widget.trans![index].description
+                                            .toString(),
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18.0),
+                                      ),
+                                      trailing: Text(
+                                        "${currency.format(widget.trans![index].amount)} ${widget.trans![index].type == 'DEBIT' ? debit : credit}",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18.0,
+                                            color: widget.trans![index].type ==
+                                                    'DEBIT'
+                                                ? Colors.red
+                                                : Colors.green),
+                                      )),
+                                ),
+                              ],
+                            );
+                          }
                         }
                         return Container();
                       }))
