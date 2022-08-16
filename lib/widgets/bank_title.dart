@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:transaction_screen/models/banks.dart';
 import 'package:intl/intl.dart';
 import 'package:transaction_screen/services/change_val.dart';
+import 'package:transaction_screen/widgets/modals/bank_modal.dart';
 
 class BankTitle extends StatefulWidget {
   BankTitle({required this.bank, Key? key}) : super(key: key);
@@ -14,136 +15,43 @@ class BankTitle extends StatefulWidget {
 }
 
 class _BankTitleState extends State<BankTitle> {
+  //Currency Format
   NumberFormat currency = NumberFormat.currency(
     name: 'INR',
     symbol: '₹',
   );
 
-  // Initial AccountId
-  String? currentVal = 'lrn_001';
-
   static Banks? bankCur;
+  dynamic modal;
 
+  //To initialise the current value of the bank (Defaults to bank[0]{AXIS Banks})
   @override
   void initState() {
     super.initState();
+    modal = BankModal(
+      bank: widget.bank,
+      currentVal: 'lrn_001',
+    );
     _setCurrentBank();
   }
 
   void _setCurrentBank() {
     for (var val in widget.bank!) {
-      if (val.accountId == currentVal) {
+      if (val.accountId == modal.currentVal) {
         setState(() => bankCur = val);
         ChangeVal.bank.value = bankCur;
       }
     }
   }
 
-  void _showAccChangePanel() {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return StatefulBuilder(
-          builder: (context, StateSetter setModalState) {
-            return Container(
-                height: MediaQuery.of(context).size.height * 0.5,
-                padding: const EdgeInsets.symmetric(
-                    vertical: 10.0, horizontal: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    IconButton(
-                        onPressed: () => Navigator.pop(context),
-                        icon: const Icon(Icons.close)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          "Account Chunein",
-                          style: TextStyle(
-                              fontSize: 20.0, fontWeight: FontWeight.bold),
-                        ),
-                        TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              "Account Jodein",
-                              style: TextStyle(
-                                  fontSize: 17.0,
-                                  fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline),
-                            ))
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        RadioListTile(
-                          title: Text(widget.bank![0].fipName.toString()),
-                          subtitle: Text(
-                              "${widget.bank![0].accountType} A/C ${widget.bank![0].accountNumber}"),
-                          value: 'lrn_001',
-                          groupValue: currentVal,
-                          onChanged: (val) {
-                            setModalState(() => currentVal = val.toString());
-                          },
-                          controlAffinity: ListTileControlAffinity.trailing,
-                        ),
-                        RadioListTile(
-                          title: Text(widget.bank![1].fipName.toString()),
-                          subtitle: Text(
-                              "${widget.bank![1].accountType} A/C ${widget.bank![1].accountNumber}"),
-                          value: 'lrn_002',
-                          groupValue: currentVal,
-                          onChanged: (val) {
-                            setModalState(() => currentVal = val.toString());
-                          },
-                          controlAffinity: ListTileControlAffinity.trailing,
-                        ),
-                        RadioListTile(
-                          title: Text(widget.bank![2].fipName.toString()),
-                          subtitle: Text(
-                              "${widget.bank![2].accountType} A/C ${widget.bank![2].accountNumber}"),
-                          value: 'lrn_003',
-                          groupValue: currentVal,
-                          onChanged: (val) {
-                            setModalState(() => currentVal = val.toString());
-                          },
-                          controlAffinity: ListTileControlAffinity.trailing,
-                        ),
-                        const SizedBox(
-                          height: 25.0,
-                        ),
-                        ElevatedButton(
-                            onPressed: () {
-                              ChangeVal.accountId.value = currentVal!;
-                              _setCurrentBank();
-                              Navigator.pop(context);
-                            },
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 15.0, horizontal: 0.0),
-                              child: Text(
-                                "Apply",
-                                style: TextStyle(fontSize: 18.0),
-                              ),
-                            ))
-                      ],
-                    )
-                  ],
-                ));
-          },
-        );
-      },
-    );
-  }
-
+  //Bank Tile Widget
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: ChangeVal.bank,
-        builder: (context, Banks? newBank, child) {
-          return Card(
-              child: Column(
+      valueListenable: ChangeVal.bank,
+      builder: (context, Banks? newBank, child) {
+        return Card(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListTile(
@@ -175,17 +83,20 @@ class _BankTitleState extends State<BankTitle> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                 child: TextButton(
-                    onPressed: () {
-                      _showAccChangePanel();
-                    },
-                    child: const Text(
-                      "Account Badlein",
-                      style: TextStyle(
-                          decoration: TextDecoration.underline, fontSize: 17.0),
-                    )),
+                  onPressed: () {
+                    modal.showAccChangePanel(context, bankCur);
+                  },
+                  child: const Text(
+                    "Account Badlein",
+                    style: TextStyle(
+                        decoration: TextDecoration.underline, fontSize: 17.0),
+                  ),
+                ),
               )
             ],
-          ));
-        });
+          ),
+        );
+      },
+    );
   }
 }
